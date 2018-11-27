@@ -11,7 +11,7 @@ This module work with `browserify`.
 [./docs](./docs/index.md)
 
 # TESTING
-Tests in the ``tests`` directory are partly outdated and testing is primarily done by running the ``BlockchainTests`` from within the [ethereumjs-vm](https://github.com/cse/cse-vm) repository.
+Tests in the ``tests`` directory are partly outdated and testing is primarily done by running the ``BlockchainTests`` from within the [cse-vm](https://github.com/cse/cse-vm) repository.
 
 Relevant test folders:
 - ``bcTotalDifficultyTest``

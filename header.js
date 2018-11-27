@@ -1,5 +1,5 @@
-const Common = require('ethereumjs-common')
-const utils = require('ethereumjs-util')
+const Common = require('cse-common')
+const utils = require('cse-util')
 const BN = utils.BN
   /**
    * An object that repersents the block header

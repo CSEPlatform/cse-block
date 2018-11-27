@@ -1,4 +1,4 @@
-process.env.ethTest = 'BasicTests'
+process.env.cseTest = 'BasicTests'
 
 module.exports = function (config) {
   config.set({

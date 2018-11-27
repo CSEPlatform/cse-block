@@ -1,9 +1,9 @@
-const Common = require('ethereumjs-common')
-const ethUtil = require('ethereumjs-util')
-const Tx = require('ethereumjs-tx')
+const Common = require('cse-common')
+const cseUtil = require('cse-util')
+const Tx = require('cse-tx')
 const Trie = require('merkle-patricia-tree')
-const BN = ethUtil.BN
-const rlp = ethUtil.rlp
+const BN = cseUtil.BN
+const rlp = cseUtil.rlp
 const async = require('async')
 const BlockHeader = require('./header')
 
@@ -14,7 +14,7 @@ const BlockHeader = require('./header')
  * @param {Array} opts Options
  * @param {String|Number} opts.chain The chain for the block [default: 'mainnet']
  * @param {String} opts.hardfork Hardfork for the block [default: null, block number-based behaviour]
- * @param {Object} opts.common Alternatively pass a Common instance (ethereumjs-common) instead of setting chain/hardfork directly
+ * @param {Object} opts.common Alternatively pass a Common instance (cse-common) instead of setting chain/hardfork directly
  * @prop {Header} header the block's header
  * @prop {Array.<Header>} uncleList an array of uncle headers
  * @prop {Array.<Buffer>} raw an array of buffers containing the raw blocks.
@@ -157,7 +157,7 @@ Block.prototype.validateTransactionsTrie = function () {
   if (this.transactions.length) {
     return txT === this.txTrie.root.toString('hex')
   } else {
-    return txT === ethUtil.SHA3_RLP.toString('hex')
+    return txT === cseUtil.SHA3_RLP.toString('hex')
   }
 }
 
@@ -235,7 +235,7 @@ Block.prototype.validateUnclesHash = function () {
   })
 
   raw = rlp.encode(raw)
-  return ethUtil.sha3(raw).toString('hex') === this.header.uncleHash.toString('hex')
+  return cseUtil.sha3(raw).toString('hex') === this.header.uncleHash.toString('hex')
 }
 
 /**
@@ -305,7 +305,7 @@ Block.prototype.toJSON = function (labeled) {
     })
     return obj
   } else {
-    return ethUtil.baToJSON(this.raw)
+    return cseUtil.baToJSON(this.raw)
   }
 }
 
